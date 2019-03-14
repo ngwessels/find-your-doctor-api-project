@@ -2,14 +2,14 @@ import 'bootstrap';
 import $ from 'jquery';
 import '../node_modules/bootstrap/scss/bootstrap.scss';
 import './sass/styles.scss';
-import { math } from './js/example.js';
+import { isMath } from './js/example.js';
 
 
 $(document).ready(function() {
   $("form#calculator").submit(function() {
-    debugger;
+    let math = new isMath();
     event.preventDefault();
-    const result = math();
+    const result = math.math();
     $("#output").text(result);
   });
 });
