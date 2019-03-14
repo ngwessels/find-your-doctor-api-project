@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 
-
+// This example.js should contain all the back-end logic, the index.js is the front end-logic
 
 
 export class isMath {
