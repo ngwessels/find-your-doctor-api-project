@@ -27,7 +27,6 @@ export class isMath {
   }
 
   math() {
-    debugger;
     const array = this.getInputs();
     const num1 = array[0];
     const num2 = array[1];
