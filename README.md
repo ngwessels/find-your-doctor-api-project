@@ -10,11 +10,16 @@ _Author_ **Nate Wessels**
 1. [License](#license)
 
 ### Description
-_This application is using a API to get doctor information. Type in your health issue, city and state and it will return back to you results_
+_This application is using the BetterDoctor API to get doctor information, and using the Google Geocode API to get address coordinates. Type in your health issue, city and state and it will return back to you results_
 
 ### Installation
 * Clone from https://github.com/ngwessels/.git
+* Get Your own BetterDoctor API Key at https://developer.betterdoctor.com/
+* Get Your own Google Geocode API Key at https://developers.google.com/maps/documentation/
 * Run `$ npm install`
+* Type `touch .env`
+* Paste `exports.apikey = [Your BetterDoctor APIKey Here]` into the .env file
+* Pase `google_geocode_api = [Your Google Geocode APIKey Here]` into the .env file
 * Run `$ npm run build`
 * Run `$ npm run start`
 
