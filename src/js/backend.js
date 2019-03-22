@@ -11,15 +11,14 @@ export class Info{
     for(let i = 0; i < length; i++) {
       let doctor = input[i];
       if(doctor[6]) {
-        string = string + "<div class='doctorInfo'<p>FirstName: " + doctor[0] + "</p><p>LastName: " + doctor[1] + "</p><img src='" + doctor[2] + "' alt=''><p>Address: " + doctor[3] + "</p><p>Phone: " + doctor[4] + "</p><p>New Patients Accepted: " + doctor[5] + "</p><p>Website: " + doctor[6] + "</p></div>";
+        string = string + "<div class='doctorInfo'><p>FirstName: " + doctor[0] + "</p><p>LastName: " + doctor[1] + "</p><img src='" + doctor[2] + "' alt=''><p>Address: " + doctor[3] + "</p><p>Phone: " + doctor[4] + "</p><p>New Patients Accepted: " + doctor[5] + "</p><p>Website: " + doctor[6] + "</p></div>";
       } else {
-        string = string + "<div class='doctorInfo'><p>FirstName: " + doctor[0] + "</p><p>LastName: " + doctor[1] + "</p><img src='" + doctor[2] + "' alt=''><p>Address: " + doctor[3] + "</p><p>Phone: " + doctor[4] + "</p><p>New Patients Accepted: " + doctor[5] + "</p></div>";
+        string = string + "<div class='doctorInfo'><p>FirstName: " + doctor[0] + "</p><p>LastName: " + doctor[1] + "</p><img src='" + doctor[2] + "' alt=''><p>Address: " + doctor[3] + "</p><p>Phone: " + doctor[4] + "</p><p>New Patients Accepted: " + doctor[5] + "</p><p>Website: None Found</p></div>";
       }
     }
     return string;
   }
   getInfo(input) {
-    debugger;
     let length = input.data.length;
     let object = [];
     for(let i = 0; i < length; i++) {

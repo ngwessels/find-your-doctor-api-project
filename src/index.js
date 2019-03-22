@@ -1,7 +1,7 @@
 import $ from 'jquery';
-import './sass/styles.scss';
 import { Doctor } from './js/apiCall.js';
 import { Info } from './js/backend.js';
+import './sass/styles.scss';
 
 
 // This js file contains all the front-end logic. It will call upon other js files that contain back-end logic
