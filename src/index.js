@@ -1,8 +1,6 @@
-import 'bootstrap';
 import $ from 'jquery';
-import '../node_modules/bootstrap/scss/bootstrap.scss';
 import './sass/styles.scss';
-import { isMath } from './js/example.js';
+import { Doctor } from './js/backend.js';
 
 
 // This js file contains all the front-end logic. It will call upon other js files that contain back-end logic
@@ -10,10 +8,17 @@ import { isMath } from './js/example.js';
 
 
 $(document).ready(function() {
-  $("form#calculator").submit(function() {
-    let math = new isMath();
+  let findDoctor = new Doctor();
+  $("form#doctorLookup").submit(function(event) {
+    debugger;
     event.preventDefault();
-    const result = math.math();
-    $("#output").text(result);
+    const myHealthIssue = $("#health").val();
+    const myPromise = findDoctor.main(myHealthIssue);
+    myPromise.then(function(response) {
+      let body = JSON.parse(response);
+      console.log(body);
+    }, function(error) {
+      console.log("There was an error");
+    })
   });
 });
