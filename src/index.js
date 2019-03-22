@@ -14,13 +14,29 @@ $(document).ready(function() {
   $("form#doctorLookup").submit(function(event) {
     event.preventDefault();
     const myHealthIssue = $("#health").val();
-    const myPromise = findDoctor.main(myHealthIssue);
+    const city = $("#city").val();
+    const state = $("#state").val();
+    const myPromise = findDoctor.getCoords(city, state);
     myPromise.then(function(response) {
-      let body = JSON.parse(response);
-      main(body);
+      let body2 = JSON.parse(response);
+      debugger;
+      console.log(body2);
+      let coords = findDoctor.findCoords(body2);
+      const myPromise2 = findDoctor.main(myHealthIssue, coords);
+      myPromise2.then(function(response) {
+        let body = JSON.parse(response);
+        main(body);
+      }, function(error) {
+        console.log("There was an error");
+        $(".form").hide();
+        $(".results").text("It appears there is an error. We are not able to get any doctor information at this time");
+
+
+      })
     }, function(error) {
-      console.log("There was an error");
-    })
+      console.log("There was an error getting coords");
+      $(".results").text("IT appears there is an error. We are not able to find your location at this time.");
+    });
   });
 });
 

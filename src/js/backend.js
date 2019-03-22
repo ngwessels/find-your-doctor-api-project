@@ -38,7 +38,6 @@ export class Info{
       array = [firstName, lastName, picture, address, phone, newPatients, website];
       object[i] = array;
     }
-    console.log(object);
     return object;
   }
 

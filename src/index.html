@@ -4,18 +4,24 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="">
     <!-- Occasionally you might need to uncomment above to get rid of icon error. No idea why -->
-    <title>Test-webpack</title>
+    <title>Look Up Your Doctor</title>
   </head>
   <body>
     <div class="container">
-     <h1>Look Up your doctor!</h1>
-     <form id="doctorLookup">
-       <div>
-         <label for="Health">Type in Health Issue</label>
-         <input type="text" id="health">
-       </div>
-       <button type="submit" class="btn">Go!</button>
-     </form>
+      <div class="form">
+        <h1>Look Up your doctor!</h1>
+        <form id="doctorLookup">
+          <div>
+           <label for="Health">Type in Health Issue</label>
+           <input type="text" id="health">
+           <label for="city">City</label>
+           <input type="text" id="city">
+           <label for="state">State</label>
+           <input type="text" id="state">
+          </div>
+          <button type="submit" class="btn">Go!</button>
+        </form>
+      </div>
 
      <div class="results">
      </div>
