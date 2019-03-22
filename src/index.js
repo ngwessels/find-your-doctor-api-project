@@ -9,19 +9,27 @@ import { Info } from './js/backend.js';
 
 
 $(document).ready(function() {
-  let findDoctor = new Doctor();
   let info = new Info();
+  let findDoctor = new Doctor();
   $("form#doctorLookup").submit(function(event) {
     event.preventDefault();
     const myHealthIssue = $("#health").val();
     const myPromise = findDoctor.main(myHealthIssue);
     myPromise.then(function(response) {
       let body = JSON.parse(response);
-      findDoctor.add(body);
-      info.getInfo(body);
-      // $(".results").append(results);
+      main(body);
     }, function(error) {
       console.log("There was an error");
     })
   });
 });
+
+function main(body) {
+  $(".results").empty();
+  let info = new Info();
+  let findDoctor = new Doctor();
+  findDoctor.add(body);
+  let results = info.getInfo(body);
+  let text = info.displayInfo(results);
+  $(".results").append(text);
+}
