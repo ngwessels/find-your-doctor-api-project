@@ -1,40 +1,37 @@
 import $ from 'jquery';
+import { Doctor } from './apiCall.js';
 
-
-// This example.js should contain all the back-end logic, the index.js is the front end-logic
-
-export class Doctor {
-  constructor() {
-    this.data = [];
-
-  }
-
-  location(healthIssue) {
+export class Info{
+  getInfo(input) {
     debugger;
-    let url = "https://api.betterdoctor.com/2016-03-01/doctors?query=" + healthIssue + "&location=";
-    let search = "45.5122%2C-122.6587%2C100&user_location=45.4888%2C-122.8013&skip=0&limit=10&user_key=" + process.env.exports.apikey;
-    let result = url + search;
-    console.log(result);
-    return url + search;
+    let length = input.data.length;
+    console.log(input.data);
+    console.log(length);
+    let object = [];
+    for(let i = 0; i < length; i++) {
+      let array = [];
+      let results = input.data[i];
+      console.log(results);
+      let firstName = results.profile.first_name;
+      let lastName = results.profile.last_name;
+      let picture = results.profile.image_url;
+      let street = results.practices[0].visit_address.street;
+      let city = results.practices[0].visit_address.city;
+      let state = results.practices[0].visit_address.state_long;
+      let zip = results.practices[0].visit_address.zip;
+      let phone  results.practices[0].phones[0].number;
+      let newPatients = results.practices[0].accepts_new_patients;
+      let website = results.practices[0].website;
+      array = [firstName, lastName, picture, street, city, state, zip, phone, newPatients, website];
+      object[i] = array;
+    }
+    return object;
   }
 
 
 
-  main(healthIssue) {
-    debugger;
-    let that = this;
-    return new Promise(function(resolve, reject) {
-      let request = new XMLHttpRequest();
-      let url = that.location(healthIssue);
-      request.onload = function() {
-        if (this.status === 200) {
-          resolve(request.response);
-        } else {
-          reject(error(request.statusText));
-        }
-      }
-      request.open("GET", url, true);
-      request.send();
-    });
-  }
+
+
+
+
 }
