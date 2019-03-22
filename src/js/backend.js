@@ -3,8 +3,6 @@ import { Doctor } from './apiCall.js';
 
 export class Info{
 
-
-
   displayInfo(input) {
     let length = input.length;
     let string;
@@ -21,30 +19,30 @@ export class Info{
   getInfo(input) {
     let length = input.data.length;
     let object = [];
-    for(let i = 0; i < length; i++) {
-      let array = [];
-      let results = input.data[i];
-      let firstName = results.profile.first_name;
-      let lastName = results.profile.last_name;
-      let picture = results.profile.image_url;
-      let street = results.practices[0].visit_address.street;
-      let city = results.practices[0].visit_address.city;
-      let state = results.practices[0].visit_address.state_long;
-      let zip = results.practices[0].visit_address.zip;
-      let phone = results.practices[0].phones[0].number;
-      let newPatients = results.practices[0].accepts_new_patients;
-      let website = results.practices[0].website;
-      let address = street + " " + city + ", " + state + " " + zip;
-      array = [firstName, lastName, picture, address, phone, newPatients, website];
-      object[i] = array;
+    if(input.data[0]) {
+      for(let i = 0; i < length; i++) {
+        let array = [];
+        let results = input.data[i];
+        let firstName = results.profile.first_name;
+        let lastName = results.profile.last_name;
+        let picture = results.profile.image_url;
+        let street = results.practices[0].visit_address.street;
+        let city = results.practices[0].visit_address.city;
+        let state = results.practices[0].visit_address.state_long;
+        let zip = results.practices[0].visit_address.zip;
+        let phone = results.practices[0].phones[0].number;
+        let newPatients = results.practices[0].accepts_new_patients;
+        let website = results.practices[0].website;
+        let address = street + " " + city + ", " + state + " " + zip;
+        array = [firstName, lastName, picture, address, phone, newPatients, website];
+        object[i] = array;
+      }
+      return object;
+
+    } else {
+      $(".results").text("Sorry there are no doctors who are able to help with this condition");
+
     }
-    return object;
   }
-
-
-
-
-
-
 
 }
