@@ -5,7 +5,7 @@ export class Info{
 
   displayInfo(input) {
     let length = input.length;
-    let string;
+    let string = "";
     for(let i = 0; i < length; i++) {
       let doctor = input[i];
       if(doctor[6]) {
