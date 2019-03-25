@@ -11,7 +11,7 @@ export class Doctor {
 
   location(healthIssue, lat, lng) {
     let url = "https://api.betterdoctor.com/2016-03-01/doctors?query=" + healthIssue + "&location=";
-    let search = lat + "%2C" + lng + "%2C100&user_location=" + lat + "%2C" + lng + "&skip=0&limit=10&user_key=" + process.env.exports.apikey;
+    let search = lat + "%2C" + lng + "%2C100&user_location=" + lat + "%2C" + lng + "&skip=0&limit=10&user_key=" + process.env.exports.apiKey;
     let result = url + search;
     return url + search;
   }
