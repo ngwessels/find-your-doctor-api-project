@@ -19,7 +19,6 @@ $(document).ready(function() {
     const myPromise = findDoctor.getCoords(city, state);
     myPromise.then(function(response) {
       let body2 = JSON.parse(response);
-      debugger;
       console.log(body2);
       let coords = findDoctor.findCoords(body2);
       const myPromise2 = findDoctor.main(myHealthIssue, coords);
